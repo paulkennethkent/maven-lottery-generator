@@ -1,9 +1,6 @@
 package com.diffblue;
+import java.util.Arrays;
 
-/**
- * Hello world!
- *
- */
 public class App
 {
     public static void main(String[] args) {
@@ -12,17 +9,17 @@ public class App
         int randomNum;
 
         for (int i = 0; i < 6; i++) {
-            randomNum = (int) (Math.random() * 50); // Random number created here.
+            randomNum = (int) (Math.random() * 49 +1);
             for (int x = 0; x < i; x++) {
-                if (lottery[x] == randomNum) // Here, code checks if same random number generated before.
+                if (lottery[x] == randomNum)
                 {
-                    randomNum = (int) (Math.random() * 50);// If random number is same, another number generated.
-                    x = -1; // restart the loop
+                    randomNum = (int) (Math.random() * 49 +1);
                 }
 
             }
             lottery[i] = randomNum;
         }
+        Arrays.sort(lottery);
 
         for (int i = 0; i < lottery.length; i++)
             System.out.print(lottery[i] + " ");
